@@ -37,7 +37,16 @@
       </ul>
 
       <h3>Finding in Arrays</h3>
-      <p>Finding by property: {{ orwell?.name }}</p>
+      <p>
+        Finding by property:
+        <span
+          :style="{ color: textColor, fontSize: '1.2rem', cursor: 'pointer' }"
+          @mouseover="textColor = hoverColor"
+          @mouseleave="textColor = 'red'"
+        >
+          {{ orwell?.name }}
+        </span>
+      </p>
 
       <h3>Nested Arrays/Objects</h3>
       <p>{{ austen?.name }}'s works:</p>
@@ -124,6 +133,8 @@ import authors from '../assets/json/authors.json'
 import bookstores from '../assets/json/bookstores.json'
 
 const showMessage = ref(false)
+const textColor = ref('red')
+const hoverColor = ref('green')
 
 // Activity 2: Get authors born after 1850
 const modernAuthors = computed(() => {
